@@ -16,109 +16,137 @@ public:
    }
 };
 
-// Node *CreateDLL(int arr[], int index, int size, Node *back)
-// {
-//    // base case
-//    if (index == size)
-//       return NULL;
+Node *CreateDLL(int arr[], int index, int size, Node *back)
+{
+   // base case
+   if (index == size)
+      return NULL;
 
-//    // Node Create Kro
-//    Node *temp = new Node(arr[index]);
-//    temp->prev = back;
-//    temp->next = CreateDLL(arr, index + 1, size, temp);
-//    return temp;
-// }
+   // Node Create Kro
+   Node *temp = new Node(arr[index]);
+   temp->prev = back;
+   temp->next = CreateDLL(arr, index + 1, size, temp);
+   return temp;
+}
 
 int main()
 {
 
-   Node *head = NULL, *tail = NULL;
+   Node *head = NULL;
 
    // Create doubly linked list
    int arr[] = {1, 2, 3, 4, 5};
    // Create it with Recursion
 
-   //head = CreateDLL(arr, 0, 5, NULL);
+   head = CreateDLL(arr, 0, 5, NULL);
 
-   for(int i=0; i<5; i++){
-        // Linked list doesn't exist
-        if(head==NULL){
-          head = new Node(arr[i]);
-          tail = head;
-        }
-        // Exits krti hai
-        else{
-          Node* temp = new Node(arr[i]);
-          tail->next = temp;
-          temp->prev = tail;;
-          tail = temp;
-        }
-
-   }
+   // for (int i = 0; i < 5; i++)
+   // {
+   //    // Linked list doesn't exist
+   //    if (head == NULL)
+   //    {
+   //       head = new Node(arr[i]);
+   //       tail = head;
+   //    }
+   //    // Exits krti hai
+   //    else
+   //    {
+   //       Node *temp = new Node(arr[i]);
+   //       tail->next = temp;
+   //       temp->prev = tail;
+   //       ;
+   //       tail = temp;
+   //    }
+   // }
 
    // Insert at start
    // Linked list does't exits
-   if (head == NULL)
-   {
-      head = new Node(5);
-   }
-   // Already exits
-   else
-   {
-      Node *temp = new Node(5);
-      temp->next = head;
-      head->prev = temp;
-      head = temp;
-   }
+   // if (head == NULL)
+   // {
+   //    head = new Node(5);
+   // }
+   // // Already exits
+   // else
+   // {
+   //    Node *temp = new Node(5);
+   //    temp->next = head;
+   //    head->prev = temp;
+   //    head = temp;
+   // }
 
    //...Insert Any given position...
 
-   int pos = 5;
+   // int pos = 5;
 
-   // Insert at Start
-   if (pos == 0)
-   {
+   // // Insert at Start
+   // if (pos == 0)
+   // {
 
-      // LL exist na ho
-      if (head == NULL)
-      {
-         head = new Node(5);
-      }
-      // LL exits ho
-      else
-      {
-         Node *temp = new Node(5);
-         temp->next = head;
-         head->prev = temp;
-         head = temp;
-      }
-   }
-   else
-   {
-      Node *curr = head;
-      // Go tothe node, after which i have to insert
-      while (--pos)
-      {
-         curr = curr->next;
-      };
+   //    // LL exist na ho
+   //    if (head == NULL)
+   //    {
+   //       head = new Node(5);
+   //    }
+   //    // LL exits ho
+   //    else
+   //    {
+   //       Node *temp = new Node(5);
+   //       temp->next = head;
+   //       head->prev = temp;
+   //       head = temp;
+   //    }
+   // }
+   // else
+   // {
+   //    Node *curr = head;
+   //    // Go to the node, after which i have to insert
+   //    while (--pos)
+   //    {
+   //       curr = curr->next;
+   //    };
 
-      // Insert at end
-      if (curr->next == NULL)
-      { // last node
-         Node *temp = new Node(5);
-         temp->prev = curr;
-         curr->next = temp;
-      }
-      // Insert at middle
-      else
-      {
-         Node *temp = new Node(5);
-         temp->next = curr->next;
-         temp->prev = curr;
-         curr->next = temp;
-         temp->next->prev = temp;
-      }
-   }
+   //    // Insert at end
+   //    if (curr->next == NULL)
+   //    { // last node
+   //       Node *temp = new Node(5);
+   //       temp->prev = curr;
+   //       curr->next = temp;
+   //    }
+   //    // Insert at middle
+   //    else
+   //    {
+   //       Node *temp = new Node(5);
+   //       temp->next = curr->next;
+   //       temp->prev = curr;
+   //       curr->next = temp;
+   //       temp->next->prev = temp;
+   //    }
+   // }
+
+   //.....Delete at Start....
+
+   // if (head != NULL)
+   // {
+   //    //...Handle here if only one node exits....
+   //    // If only Node exits
+   //    if (head->next == NULL)
+   //    {
+   //       delete head;
+   //       head = NULL;
+   //    }
+
+   //    // If more than 1 node exits
+   //    else
+   //    {
+   //       Node *temp = head;
+   //       head = head->next;
+   //       delete temp;
+
+   //       head->prev = NULL;
+   //    }
+   // }
+   
+   //....Delete At End Node....
 
    // value print..
 
