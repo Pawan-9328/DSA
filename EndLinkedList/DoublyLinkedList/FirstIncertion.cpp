@@ -19,10 +19,28 @@ public:
 int main()
 {
 
-   Node *head = NULL;
+   Node *head = NULL, *tail = NULL;
+
+   // Create doubly linked list 
+   int arr[] = {1,2,3,4,5};
+
+   for(int i=0; i<5; i++){
+        // Linked list doesn't exist 
+        if(head==NULL){
+          head = new Node(arr[i]);
+          tail = head;
+        }
+        // Exits krti hai 
+        else{
+          Node* temp = new Node(arr[i]);
+          tail->next = temp;
+          temp->prev = tail;;
+          tail = temp;
+        }
+
+   }
 
    // Insert at start
-
    // Linked list does't exits
    if (head == NULL)
    {
