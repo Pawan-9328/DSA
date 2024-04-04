@@ -148,27 +148,78 @@ int main()
 
    //....Delete At End Node....
 
-   if (head != NULL)
+   // if (head != NULL)
+   // {
+
+   //    //....If only 1 Node exits...
+   //    if (head->next == NULL)
+   //    {
+   //       delete head;
+   //       // head we point null because suppose koi any value exits ho
+   //       head = NULL;
+   //    }
+   //    // ...More then one....
+   //    else
+   //    {
+   //       Node *curr = head;
+   //       while (curr->next)
+
+   //          curr = curr->next;
+   //          curr->prev->next = NULL;
+   //          delete curr;
+
+   //    }
+   // }
+
+   ///.....Delete at any position....
+
+   int pos = 5;
+
+   //...delete at Start
+   if (pos == 1)
    {
 
-      //....If only 1 Node exits...
+      //...Handle here if only one node exits....
+      // If only Node exits
       if (head->next == NULL)
       {
          delete head;
-         // head we point null because suppose koi any value exits ho
          head = NULL;
       }
-      // ...More then one....
+
+      // If more than 1 node exits
       else
+
       {
-         Node *curr = head;
-         while (curr->next)
-         
-            curr = curr->next;
-            curr->prev->next = NULL;
-            delete curr;
-         
+         Node *temp = head;
+         head = head->next;
+         delete temp;
+
+         head->prev = NULL;
       }
+   }
+
+   else
+   {
+       Node * curr = head;
+
+       while(--pos ){
+         curr = curr->next;
+       }
+      //...delete at end...
+           if(curr->next == NULL){
+              curr->prev->next  = NULL;
+              delete curr;
+           } 
+           //...delete at middle...
+           else{
+              curr->prev->next = curr->next;
+              curr->next->prev = curr->prev;
+              delete curr;
+           }
+
+       
+      
    }
 
    // value print..
