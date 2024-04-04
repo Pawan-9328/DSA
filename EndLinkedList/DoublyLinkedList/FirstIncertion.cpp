@@ -145,8 +145,31 @@ int main()
    //       head->prev = NULL;
    //    }
    // }
-   
+
    //....Delete At End Node....
+
+   if (head != NULL)
+   {
+
+      //....If only 1 Node exits...
+      if (head->next == NULL)
+      {
+         delete head;
+         // head we point null because suppose koi any value exits ho
+         head = NULL;
+      }
+      // ...More then one....
+      else
+      {
+         Node *curr = head;
+         while (curr->next)
+         
+            curr = curr->next;
+            curr->prev->next = NULL;
+            delete curr;
+         
+      }
+   }
 
    // value print..
 
