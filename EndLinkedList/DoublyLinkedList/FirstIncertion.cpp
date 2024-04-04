@@ -16,29 +16,45 @@ public:
    }
 };
 
+Node *CreateDLL(int arr[], int index, int size, Node *back)
+{
+   // base case
+   if (index == size)
+      return NULL;
+
+   // Node Create Kro
+   Node *temp = new Node(arr[index]);
+   temp->prev = back;
+   temp->next = CreateDLL(arr, index + 1, size, temp);
+   return temp;
+}
+
 int main()
 {
 
    Node *head = NULL, *tail = NULL;
 
-   // Create doubly linked list 
-   int arr[] = {1,2,3,4,5};
+   // Create doubly linked list
+   int arr[] = {1, 2, 3, 4, 5};
+   // Create it with Recursion
 
-   for(int i=0; i<5; i++){
-        // Linked list doesn't exist 
-        if(head==NULL){
-          head = new Node(arr[i]);
-          tail = head;
-        }
-        // Exits krti hai 
-        else{
-          Node* temp = new Node(arr[i]);
-          tail->next = temp;
-          temp->prev = tail;;
-          tail = temp;
-        }
+   head = CreateDLL(arr, 0, 5, NULL);
 
-   }
+   // for(int i=0; i<5; i++){
+   //      // Linked list doesn't exist
+   //      if(head==NULL){
+   //        head = new Node(arr[i]);
+   //        tail = head;
+   //      }
+   //      // Exits krti hai
+   //      else{
+   //        Node* temp = new Node(arr[i]);
+   //        tail->next = temp;
+   //        temp->prev = tail;;
+   //        tail = temp;
+   //      }
+
+   // }
 
    // Insert at start
    // Linked list does't exits
