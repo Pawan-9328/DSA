@@ -201,25 +201,25 @@ int main()
 
    else
    {
-       Node * curr = head;
+      Node *curr = head;
 
-       while(--pos ){
+      while (--pos)
+      {
          curr = curr->next;
-       }
+      }
       //...delete at end...
-           if(curr->next == NULL){
-              curr->prev->next  = NULL;
-              delete curr;
-           } 
-           //...delete at middle...
-           else{
-              curr->prev->next = curr->next;
-              curr->next->prev = curr->prev;
-              delete curr;
-           }
-
-       
-      
+      if (curr->next == NULL)
+      {
+         curr->prev->next = NULL;
+         delete curr;
+      }
+      //...delete at middle...
+      else
+      {
+         curr->prev->next = curr->next;
+         curr->next->prev = curr->prev;
+         delete curr;
+      }
    }
 
    // value print..
