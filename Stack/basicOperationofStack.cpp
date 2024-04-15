@@ -11,6 +11,8 @@ class Stack
    int top;
 
 public:
+
+bool flag;
    // constructor
    Stack(int s)
    {
@@ -18,6 +20,7 @@ public:
       top = -1;
       // s size array create and it's address store in arr
       arr = new int[s];
+      flag = 1; 
    }
    // push
    void push(int value)
@@ -47,6 +50,8 @@ public:
 
          cout << "Poppped "<< arr[top] <<" from the stack \n ";
          top--;
+         if(top==-1)
+         flag=1;
       }
    }
 
@@ -55,7 +60,7 @@ public:
    {
       if (top == -1)
       {
-         cout << "Stack is empty \n";
+         cout <<"Stack is empty \n";
          return -1;
       }
       else
@@ -78,11 +83,20 @@ public:
 int main()
 { 
    Stack S(5);
-   S.push(5);
-   S.push(6);
-   S.push(8);
-   S.push(10);
-   S.pop();
+   // S.push(5);
+   // S.push(6);
+   // S.push(8);
+   // S.push(10);
+   // S.pop();
+   // cout<<S.peek()<<endl;
+   // cout<<S.IsSize()<<endl;
+   // cout<<S.IsEmpty()<<endl;
+
+   int value = S.peek();
+   //check stack is empty or not 
+   if(S.flag == 0)
+   cout<<value<<endl;
+   //cout<<S.peek()<<endl;
 
    return 0;
 }
