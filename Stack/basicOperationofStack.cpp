@@ -95,7 +95,7 @@ int main()
    int value = S.peek();
    //check stack is empty or not 
    if(S.flag == 0)
-   cout<<value<<endl;
+   cout<<value<<endl;    
    //cout<<S.peek()<<endl;
 
    return 0;
